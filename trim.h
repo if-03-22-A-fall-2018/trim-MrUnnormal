@@ -16,4 +16,5 @@
 #define STRLEN 64
 
 void trim (const char* source, char* trimmed_string);
+bool isEmpty(char char1);
 #endif

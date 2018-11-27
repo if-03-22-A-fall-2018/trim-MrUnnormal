@@ -15,20 +15,46 @@
 
 void trim (const char* source, char* trimmed_string)
 {
-  int leading_blanks = 0;
-  int temp = 0;
-  while (source[leading_blanks] == ' ')
+  int end = -1;
+int start = -1;
+unsigned int count = strlen(source);
+
+strcpy(trimmed_string, ""); // delete content of trimmed_string
+
+  if(count > 0)
   {
-    leading_blanks++;
-  }
-  for (size_t i = leading_blanks;i < strlen(source); i++)
-  {
-    for (size_t o = 0;o < strlen(source); o++)
+    count--;
+    while((end == -1) && (count >= 0))
     {
-      trimmed_string[o] = source[i];
+      if(!isEmpty(source[count]))
+      {
+        end = count;
+      }
+      count--;
     }
-    temp = i;
+
+    count = 0;
+    while((start == -1) && (count < strlen(source)))
+    {
+      if(!isEmpty(source[count]))
+      {
+        start = count;
+      }
+      count++;
+    }
   }
 
-  trimmed_string[temp + 1] = '\0';
+  count = 0;
+  for (int i = start; i <= end; i++) {
+    trimmed_string[i-start] = source[i];
+  }
+
+  if(end+1 < (int)strlen(source))
+  {
+    trimmed_string[end+1] = '\0';
+}
+}
+
+bool isEmpty(char char1){
+  return char1 == ' ';
 }
