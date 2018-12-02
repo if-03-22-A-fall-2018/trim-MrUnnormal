@@ -1,5 +1,5 @@
 /*----------------------------------------------------------
- *				HTBLA-Leonding / Klasse: <your class>
+ *				HTBLA-Leonding / Klasse: 2AHIF
  * ---------------------------------------------------------
  * Exercise Number: 0
  * Title:			trim.h

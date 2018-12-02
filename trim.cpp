@@ -1,5 +1,5 @@
 /*----------------------------------------------------------
- *				HTBLA-Leonding / Klasse: <your class>
+ *				HTBLA-Leonding / Klasse: 2AHIF
  * ---------------------------------------------------------
  * Exercise Number: 10
  * Title:			trim.cpp
@@ -16,10 +16,10 @@
 void trim (const char* source, char* trimmed_string)
 {
   int end = -1;
-int start = -1;
-unsigned int count = strlen(source);
+  int begin = -1;
+  unsigned int count = strlen(source);
 
-strcpy(trimmed_string, ""); // delete content of trimmed_string
+strcpy(trimmed_string, ""); // reset trimmed_string
 
   if(count > 0)
   {
@@ -34,25 +34,26 @@ strcpy(trimmed_string, ""); // delete content of trimmed_string
     }
 
     count = 0;
-    while((start == -1) && (count < strlen(source)))
+    while((begin == -1) && (count < strlen(source)))
     {
       if(!isEmpty(source[count]))
       {
-        start = count;
+        begin = count;
       }
       count++;
     }
   }
 
   count = 0;
-  for (int i = start; i <= end; i++) {
-    trimmed_string[i-start] = source[i];
+  for (int i = begin; i <= end; i++)
+  {
+    trimmed_string[i-begin] = source[i];
   }
 
   if(end+1 < (int)strlen(source))
   {
     trimmed_string[end+1] = '\0';
-}
+  }
 }
 
 bool isEmpty(char char1){
